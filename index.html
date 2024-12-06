@@ -44,7 +44,36 @@
     window.onload = getLastUpdatedTime;
 </script>
 
-
+<!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
+<script>
+  // Function to calculate and display word count for a specified section
+  function displayWordCount(sectionId, outputId) {
+    // Get the text content from the specified section
+    const text = document.getElementById(sectionId).textContent;
+    // Split text into words based on spaces and filter out any empty strings
+    const wordArray = text.trim().split(/\s+/);
+    // Count the words
+    const wordCount = wordArray.length;
+    // Return the word count for summing purposes
+    return wordCount;
+  }
+  // Function to calculate and display total word count from selected sections
+  function displayTotalWordCount() {
+    // Calculate word count for each section and accumulate the total
+    const BackstoryCount = displayWordCount("Backstory_InText");
+    const Design_ProcessCount = displayWordCount("Design Process_InText");
+    const Construction_ProcessCount = displayWordCount("Construction Process_InText");
+    const OutcomeCount = displayWordCount("Outcome_InText");
+    // Calculate the sum of all selected sections
+    const totalWordCount = BackstoryCount + Design_ProcessCount + Contruction_ProcessCount + OutcomeCount;
+    // Display the total word count
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+  }
+  // Run the function for specific sections and display total count when the page loads
+  window.onload = displayTotalWordCount;
+</script>
 
 <html>
 
@@ -184,7 +213,7 @@
 <img src="Progress of the works 1.png" alt="Banner" width="200" height=420">, <img src="Progress of the works 2.png" alt="Banner" width="200" height=420">, <img src="The beacon.png" alt="Banner" width="200" height=420">,
 
 <hr>
-         <h3 id="References">Refernce</h3>
+         <h3 id="References">Reference</h3>
          <p class="p.ex1">
          <pre>
            [1] Deborah Cadbury: Seven Wonders of the Industrail World (5 July 2004)
@@ -194,36 +223,7 @@
          </pre>
          </p>
 
-<!-- Placeholder for total word count -->
-<p id="totalWordCount"></p>
-<hr>
-<script>
-  // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
-    // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
-    // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
-  }
-  // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const BackstoryCount = displayWordCount("Backstory_InText");
-    const Design_ProcessCount = displayWordCount("Design Process_InText");
-    const Construction_ProcessCount = displayWordCount("Construction Process_InText");
-    const OutcomeCount = displayWordCount("Outcome_InText");
-    // Calculate the sum of all selected sections
-    const totalWordCount = BackstoryCount + Design_ProcessCount + Contruction_ProcessCount + OutcomeCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
-  // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
-</script>
+
     
 <p id="date&time"></p>
  <script>
